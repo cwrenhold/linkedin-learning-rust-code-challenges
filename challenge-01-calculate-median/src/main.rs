@@ -1,3 +1,16 @@
+/// Calculate the median of a vector of floating-point numbers.
+///
+/// # Arguments
+///
+/// * `numbers` - A vector of floating-point numbers
+///
+/// # Examples
+///
+/// ```
+/// let numbers = vec![1.0, 2.0, 3.0, 4.0, 5.0];
+/// let result = calculate_median(numbers);
+/// assert_eq!(result, Some(3.0));
+/// ```
 fn calculate_median(numbers: Vec<f32>) -> Option<f32> {
     let length = numbers.len();
 
@@ -7,6 +20,7 @@ fn calculate_median(numbers: Vec<f32>) -> Option<f32> {
         return None;
     }
 
+    // Create a clone of the vector so the original is not affected
     let mut sorted_numbers = numbers.clone();
     sorted_numbers.sort_by(|a, b| a.partial_cmp(b).unwrap());
 
@@ -18,7 +32,7 @@ fn calculate_median(numbers: Vec<f32>) -> Option<f32> {
     }
 
     // If the vector has an odd number of elements, return the middle element
-    return Some(sorted_numbers[middle]);
+    Some(sorted_numbers[middle])
 }
 
 fn main() {
